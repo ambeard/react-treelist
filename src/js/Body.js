@@ -135,6 +135,13 @@ class Body extends Component {
     // adding this as scroll causes re-render
     // checking just expanded rows for now, can add
     // 'data' in future
+    console.log('did it work?')
+    console.log('nextProps', nextProps)
+    console.log('nextState', nextState)
+    console.log('this.props', this.props)
+    console.log('this.state', this.state)
+    
+       
     return nextState.scrollTop !== this.state.scrollTop ||
       nextState.scrollLeft !== this.state.scrollLeft ||
       nextProps.width !== this.props.width ||
