@@ -29,10 +29,9 @@ class Body extends Component {
     // start with first level records
     const rootParents = getRootParents(data, parentIdField);
 
-    // add all parent rows to 'expandedRows' if expandAll
-    // option is true. Only do this for first render
+    // if expandAll is true, expand the root node only
     if (expandAll && !this._expandAllComplete) {
-      this.state.expandedRows.push(...metadata.parentRowIds);
+      this.state.expandedRows.push(rootParents[0].id);
       this._expandAllComplete = true;
     }
 
@@ -137,7 +136,7 @@ class Body extends Component {
       nextProps.width !== this.props.width ||
       nextState.expandedRows.length !== this.state.expandedRows.length ||
       nextProps.updateHash.sort !== this.props.updateHash.sort ||
-      this.props.data.length !== nextProps.data.length; 	
+      this.props.data.length !== nextProps.data.length;
   }
 
   render() {
